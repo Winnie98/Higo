@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/app_main">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <com.joanzapata.iconify.widget.IconTextView
+                android:id="@+id/icon_address_back"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginRight="20dp"
+                android:gravity="left|center_vertical"
+                android:text="@string/fa_angle_left"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:layout_marginEnd="20dp"
+                tools:ignore="RtlHardcoded" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="@string/address_manage"
+                android:textColor="@android:color/white"
+                android:textSize="25sp" />
+
+            <com.joanzapata.iconify.widget.IconTextView
+                android:id="@+id/icon_address_add"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginRight="20dp"
+                android:gravity="right|center_vertical"
+                android:text="@string/fa_plus_square_o"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:layout_marginEnd="20dp"
+                tools:ignore="RtlHardcoded" />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_address"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_address"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>

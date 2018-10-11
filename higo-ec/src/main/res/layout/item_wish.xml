@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="140dp"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:layout_gravity="center"
+    card_view:cardBackgroundColor="@android:color/white"
+    card_view:cardCornerRadius="6dp"
+    card_view:cardElevation="3dp"
+    card_view:cardUseCompatPadding="true">
+
+
+
+    <LinearLayout
+        android:id="@+id/item_product"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@color/app_background"/>
+
+        <LinearLayout
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:orientation="horizontal">
+
+
+
+            <ImageView
+                android:id="@+id/imag_wish_list"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="2dp" />
+
+
+
+            <!--促销信息-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/txt_wish_list_product_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="商品名称"
+                    android:textSize="18dp"
+                    tools:ignore="HardcodedText"
+                    android:textColor="@color/we_chat_black"/>
+
+                <TextView
+                    android:id="@+id/txt_publish_to_market_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="用户名"
+                    android:layout_marginRight="5dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="￥"
+                        android:textSize="16dp"
+                        android:textColor="@color/app_main"
+                        />
+
+                    <TextView
+                        android:id="@+id/txt_wish_list_product_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1299"
+                        android:textSize="16dp"
+                        android:textColor="@color/app_main"
+                        android:typeface="monospace" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/createTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="8dp"
+                            android:gravity="center_vertical"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp">
+                            <ImageView
+                                android:id="@+id/img_wish_list_country"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:scaleType="centerCrop"/>
+                            <TextView
+                                android:id="@+id/txt_product_country"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <Button
+                            android:id="@+id/btn_wish_list_category"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="类别"
+                            android:textSize="10dp"
+                            android:gravity="center"
+                            android:background="@drawable/border_button_category"
+                            android:layout_marginRight="3dp"/>
+
+                        <Button
+                            android:id="@+id/btn_wish_list_type"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="类型"
+                            android:textSize="10dp"
+                            android:gravity="center"
+                            android:textColor="@color/app_main"
+                            android:background="@drawable/border_button_status"
+                            android:layout_alignParentRight="true"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <!--商品信息结束-->
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</android.support.v7.widget.CardView>

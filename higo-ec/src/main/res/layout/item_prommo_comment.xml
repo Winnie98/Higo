@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:background="@android:color/white"
+    android:orientation="horizontal">
+
+        <!--用户头像-->
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/tv_item_comment_user_avatar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
+
+        <!--评论信息-->
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:padding="10dp">
+
+        <!--用户名-->
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_item_comment_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="用户名"
+            android:textColor="@color/grey"
+            tools:ignore="HardcodedText"
+            android:textSize="14sp"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_item_comment_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="评论详情"
+                android:textSize="18dp"
+                android:layout_marginBottom="10dp"
+                tools:ignore="HardcodedText" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_item_comment_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="评论时间"
+            tools:ignore="HardcodedText"
+            android:textSize="10dp"
+            android:textColor="@color/darkgray"
+            />
+        </android.support.v7.widget.LinearLayoutCompat>
+
+
+    <!--&lt;!&ndash;评价信息&ndash;&gt;-->
+    <!--<android.support.v7.widget.LinearLayoutCompat-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:orientation="vertical"-->
+        <!--android:padding="10dp">-->
+
+        <!--<android.support.v7.widget.AppCompatTextView-->
+            <!--android:id="@+id/tv_item_comment_detail"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="评论详情"-->
+            <!--android:textSize="18dp"-->
+            <!--tools:ignore="HardcodedText" />-->
+    <!--</android.support.v7.widget.LinearLayoutCompat>-->
+    <!--评价信息结束-->
+
+
+</android.support.v7.widget.LinearLayoutCompat>

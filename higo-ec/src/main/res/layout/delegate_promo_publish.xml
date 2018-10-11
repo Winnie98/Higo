@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/app_main"
+                android:gravity="center">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.joanzapata.iconify.widget.IconTextView
+                        android:id="@+id/icon_publish_promo_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="12dp"
+                        android:gravity="center"
+                        android:text="@string/fa_angle_left"
+                        android:textSize="30sp"
+                        android:textColor="@color/white"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="发布促销信息"
+                        android:textColor="@color/white"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/txt_publish_promo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="12dp"
+                        android:gravity="center"
+                        android:text="发布"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+                </RelativeLayout>
+            </android.support.v7.widget.Toolbar>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="促销类别:"
+                    android:textSize="20sp"
+                    android:textColor="@color/we_chat_black"
+                    android:layout_marginRight="10dp"/>
+
+                <Spinner
+                    android:id="@+id/spinner_publish_promo_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/app_background"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="所属区域:"
+                    android:textSize="20sp"
+                    android:textColor="@color/we_chat_black"
+                    android:layout_marginRight="10dp"/>
+
+                <Spinner
+                    android:id="@+id/spinner_publish_promo_country"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/app_background"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="商品名称:"
+                    android:textSize="20sp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/we_chat_black"/>
+
+                <EditText
+                    android:id="@+id/edt_publish_promo_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:textSize="20sp"/>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/app_background"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="商品价格:"
+                    android:textSize="20sp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/we_chat_black"/>
+
+                <EditText
+                    android:id="@+id/edt_publish_promo_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"/>
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/app_background"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="商品来源:"
+                    android:textSize="20sp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/we_chat_black"/>
+
+                <EditText
+                    android:id="@+id/edt_publish_promo_source"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/app_background"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="商品详细描述:"
+                    android:textSize="20sp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/we_chat_black"/>
+
+                <EditText
+                    android:id="@+id/edt_publish_promo_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:lines="2"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/app_background"/>
+
+            <EditText
+                android:id="@+id/edt_add_img"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"/>
+
+            <!--<com.yhl.higo.ui.widget.AutoPhotoLayout-->
+                <!--android:id="@+id/custom_auto_photo_layout"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--app:icon_size="10sp"-->
+                <!--app:item_margin="3"-->
+                <!--app:line_count="5"-->
+                <!--app:max_count="5" />-->
+
+
+            <!--<android.support.v7.widget.RecyclerView-->
+                <!--android:id="@+id/recycler_publish_promo"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_marginBottom="50dp"/>-->
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_add_promo_img"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="添加图片"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/border_button"/>
+
+
+
+</RelativeLayout>

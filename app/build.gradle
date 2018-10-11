@@ -1,0 +1,58 @@
+apply plugin: 'com.android.application'
+//解决第三方包引入冲突
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion '27.1.1'
+            }
+        }
+    }
+}
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.yhl.higo.app"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation project(':higo-ec')
+    implementation project(':higo-core')
+//    annotationProcessor project(':higo-compiler')
+    //字体图标
+    compile 'com.joanzapata.iconify:android-iconify-ionicons:2.2.2'
+    compile 'com.joanzapata.iconify:android-iconify-fontawesome:2.2.2'
+    //Fragment依赖
+    compile 'me.yokeyword:fragmentation:1.0.3'
+    compile 'me.yokeyword:fragmentation-swipeback:1.0.3'
+    //ButterKnife依赖
+    compile 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    //网络请求依赖
+    compile 'com.squareup.okio:okio:1.14.0'
+    compile 'com.squareup.okhttp3:okhttp:3.10.0'
+    compile 'com.squareup.retrofit2:retrofit:2.4.0'
+    compile 'com.squareup.retrofit2:converter-scalars:2.4.0'
+    implementation 'com.facebook.stetho:stetho:1.4.2'
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.4.2'
+//    implementation project(':higo-compiler')
+}

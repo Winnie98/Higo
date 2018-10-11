@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/app_main"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.joanzapata.iconify.widget.IconTextView
+                android:id="@+id/icon_user_identity_back"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="left|center_vertical"
+                android:text="{fa-angle-left}"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:background="@android:color/transparent"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:text="用户身份验证"
+                android:textColor="@android:color/white"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/btn_user_identity_submit"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="提交"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:background="@android:color/transparent"/>
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="请上传一张身份证正面照"
+                android:textColor="@color/we_chat_black"
+                android:padding="8dp"
+                android:textSize="18sp"/>
+
+            <ImageView
+                android:id="@+id/img_identity_positive"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@mipmap/add8"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/border_image_gray"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="请上传一张身份证背面照"
+                android:textColor="@color/we_chat_black"
+                android:padding="8dp"
+                android:textSize="18sp"/>
+
+            <ImageView
+                android:id="@+id/img_identity_reverse"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@mipmap/add8"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/border_image_gray"/>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/app_main"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.joanzapata.iconify.widget.IconTextView
+                android:id="@+id/icon_others_user_info_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="20dp"
+                android:gravity="left|center_vertical"
+                android:text="{fa-angle-left}"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="用户基本信息"
+                android:textColor="@android:color/white"
+                android:textSize="25sp"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/app_main"
+            android:layout_marginBottom="5dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/get_others_user_info_avatar"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/txt_others_user_info_username"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:background="@null" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:text="评    分"
+                android:textColor="@color/we_chat_black"/>
+
+            <RatingBar
+            android:id="@+id/user_info_others_rb_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:stepSize="1"
+            android:layout_marginLeft="35dp"
+            android:progressTint="@color/app_main"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:text="总销量    "
+                android:textColor="@color/we_chat_black"/>
+
+            <TextView
+                android:id="@+id/txt_others_user_info_sell_count"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="left|center"
+                android:layout_marginLeft="50dp"
+                android:textSize="20dp"
+                android:background="@null"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="horizontal">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_personal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:id="@+id/ll_person_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/ll_login_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:src="@mipmap/higo"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/txt_sign_up"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/border_sign_up"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginTop="30dp"
+                        android:text="注册"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:layout_above="@+id/txt_sign_in"/>
+
+                    <TextView
+                        android:id="@+id/txt_sign_in"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/border_sign_in"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:text="登录"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:layout_alignParentBottom="true"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_user_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/app_background">
+
+                    <!--头像部分-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:background="@color/app_main">
+
+                        <!--<com.joanzapata.iconify.widget.IconTextView-->
+                            <!--android:id="@+id/icon_edit_user_info"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_alignParentRight="true"-->
+                            <!--android:layout_marginTop="20dp"-->
+                            <!--android:layout_marginRight="20dp"-->
+                            <!--android:textColor="@android:color/white"-->
+                            <!--android:text="{fa-edit}"-->
+                            <!--android:textSize="25sp" />-->
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/img_user_avatar"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="30dp"/>
+
+                        <TextView
+                            android:id="@+id/tv_user_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="20dp"
+                            android:textColor="@android:color/white"
+                            android:textSize="16sp" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_user_identity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginEnd="20dp">
+
+                            <TextView
+                                android:id="@+id/txt_identity"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginEnd="20dp" />
+
+                            <com.joanzapata.iconify.widget.IconTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="{fa-chevron-right}" />
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <!--订单部分-->
+                    <RelativeLayout
+                        android:id="@+id/ll_all"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@android:color/white"
+                        android:orientation="horizontal"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentLeft="true"
+                            android:gravity="center"
+                            android:text="我的订单"
+                            android:textColor="@android:color/black" />
+
+                        <TextView
+                            android:id="@+id/tv_all_order"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_toLeftOf="@+id/tv_all_account_arrow"
+                            android:gravity="center"
+                            android:text="全部订单"
+                            android:textColor="@android:color/darker_gray" />
+
+                        <com.joanzapata.iconify.widget.IconTextView
+                            android:id="@+id/tv_all_account_arrow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center"
+                            android:text="{fa-chevron-right}"
+                            android:textColor="@android:color/darker_gray" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gainsboro"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:background="@android:color/white"
+                        android:baselineAligned="true"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/ll_pay"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <com.joanzapata.iconify.widget.IconTextView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center"
+                                android:text="{fa-credit-card}"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="5dp"
+                                android:gravity="center"
+                                android:text="待付款"
+                                android:textSize="10sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_send"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <com.joanzapata.iconify.widget.IconTextView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center"
+                                android:text="{fa-send}"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="5dp"
+                                android:gravity="center"
+                                android:text="待发货"
+                                android:textSize="10sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_receive"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <com.joanzapata.iconify.widget.IconTextView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center"
+                                android:text="{fa-truck}"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="5dp"
+                                android:gravity="center"
+                                android:text="待收货"
+                                android:textSize="10sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_complete"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <com.joanzapata.iconify.widget.IconTextView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center"
+                                android:text="{fa-clone}"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="5dp"
+                                android:gravity="center"
+                                android:text="已完成"
+                                android:textSize="10sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/layout_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@android:color/white"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="收货地址"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="center"
+                            android:layout_alignParentLeft="true"/>
+
+                        <com.joanzapata.iconify.widget.IconTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="{fa-chevron-right}"
+                            android:layout_marginRight="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginEnd="20dp"
+                            android:layout_alignParentEnd="true" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/layout_wallet"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@android:color/white"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="我的钱包"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="center"
+                            android:layout_alignParentLeft="true"/>
+
+                        <TextView
+                            android:id="@+id/user_info_balance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_toLeftOf="@+id/arrow_wallet"
+                            android:gravity="center"
+                            android:layout_marginEnd="10dp"/>
+
+                        <com.joanzapata.iconify.widget.IconTextView
+                            android:id="@+id/arrow_wallet"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="{fa-chevron-right}"
+                            android:layout_marginRight="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginEnd="20dp"
+                            android:layout_alignParentEnd="true" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/layout_publish"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@android:color/white"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="我的发布"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="center"
+                            android:layout_alignParentLeft="true"/>
+
+                        <com.joanzapata.iconify.widget.IconTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="{fa-chevron-right}"
+                            android:layout_marginRight="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginEnd="20dp"
+                            android:layout_alignParentEnd="true" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/layout_wishList"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@android:color/white"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="心愿单"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="center"
+                            android:layout_alignParentLeft="true"/>
+
+                        <com.joanzapata.iconify.widget.IconTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="{fa-chevron-right}"
+                            android:layout_marginRight="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginEnd="20dp"
+                            android:layout_alignParentEnd="true" />
+
+                    </RelativeLayout>
+
+                    <!--<RelativeLayout-->
+                        <!--android:id="@+id/layout_modifyPwd"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="50dp"-->
+                        <!--android:layout_marginBottom="5dp"-->
+                        <!--android:background="@android:color/white"-->
+                        <!--android:orientation="horizontal">-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:text="修改密码"-->
+                            <!--android:layout_marginLeft="20dp"-->
+                            <!--android:gravity="center"-->
+                            <!--android:layout_alignParentLeft="true"/>-->
+
+                        <!--<com.joanzapata.iconify.widget.IconTextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:gravity="center"-->
+                            <!--android:text="{fa-chevron-right}"-->
+                            <!--android:layout_marginRight="20dp"-->
+                            <!--android:layout_alignParentRight="true"-->
+                            <!--android:layout_marginEnd="20dp"-->
+                            <!--android:layout_alignParentEnd="true" />-->
+
+                    <!--</RelativeLayout>-->
+
+                    <RelativeLayout
+                        android:id="@+id/layout_feedback"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@android:color/white"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="反馈管理"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="center"
+                            android:layout_alignParentLeft="true"/>
+
+                        <com.joanzapata.iconify.widget.IconTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="{fa-chevron-right}"
+                            android:layout_marginRight="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginEnd="20dp"
+                            android:layout_alignParentEnd="true" />
+
+                    </RelativeLayout>
+
+                    <Button
+                        android:id="@+id/btn_exit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="确认退出"
+                        android:textColor="@android:color/white"
+                        android:background="@color/app_main"
+                        android:layout_margin="10dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>

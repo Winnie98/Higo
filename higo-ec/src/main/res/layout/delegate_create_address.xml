@@ -1,0 +1,207 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/app_main">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.joanzapata.iconify.widget.IconTextView
+                android:id="@+id/icon_address_return"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="20dp"
+                android:gravity="center"
+                android:text="@string/fa_angle_left"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="20dp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/receive_address"
+                android:textColor="@android:color/white"
+                android:textSize="25sp" />
+
+        </RelativeLayout>
+
+
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:padding="10dp"
+            android:textSize="16sp"
+            android:background="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/receiver"
+            android:gravity="center"/>
+        <EditText
+            android:id="@+id/edt_create_receiver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:textSize="12sp"
+            android:padding="10dp"
+            android:hint="@string/please_input_receiver_name"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F6F5F4"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+
+            android:padding="10dp"
+            android:textSize="16sp"
+            android:background="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/phone"
+            android:gravity="center"
+            />
+        <EditText
+            android:id="@+id/edt_create_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:textSize="12sp"
+            android:padding="10dp"
+            android:hint="@string/please_input_receiver_phone"
+            android:inputType="phone"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F6F5F4"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+
+            android:padding="10dp"
+            android:textSize="16sp"
+            android:background="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/zipcode"
+            android:gravity="center"
+            />
+        <EditText
+            android:id="@+id/edt_create_zipcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:textSize="12sp"
+            android:padding="10dp"
+            android:hint="@string/please_input_zipcode"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F6F5F4"
+        />
+    <LinearLayout
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:padding="10dp"
+            android:textSize="16sp"
+            android:background="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/address_area"
+            android:gravity="center"
+            />
+        <TextView
+            android:id="@+id/tv_create_address"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F6F5F4"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:padding="10dp"
+            android:textSize="16sp"
+            android:background="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/address_detail"
+            android:gravity="center"
+            />
+        <EditText
+            android:id="@+id/edt_create_address_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:textSize="12sp"
+            android:padding="10dp"
+            android:hint="@string/address_detail_hint"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F6F5F4"
+        />
+
+
+
+    <Button
+        android:id="@+id/btn_create_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@color/app_main"
+        android:text="@string/sure"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+
+</LinearLayout>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/app_main"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/image_close_check"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_close_white_24dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:gravity="center"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/imput_answer_of_question"
+                android:textColor="@android:color/white"
+                android:textSize="25sp" />
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/phone"
+        android:textSize="20sp"
+        android:paddingLeft="15dp"
+        android:gravity="center_vertical"
+        android:paddingStart="15dp"
+        tools:ignore="RtlSymmetry" />
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_check_answer_phone"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:textSize="16sp"
+        android:background="@android:color/white"
+        android:paddingLeft="15dp"
+        android:gravity="center_vertical"
+        android:paddingStart="15dp"
+        tools:ignore="RtlSymmetry" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/question"
+        android:textSize="20sp"
+        android:paddingLeft="15dp"
+        android:gravity="center_vertical"
+        android:paddingStart="15dp"
+        tools:ignore="RtlSymmetry" />
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_check_answer_question"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:textSize="16sp"
+        android:background="@android:color/white"
+        android:paddingLeft="15dp"
+        android:gravity="center_vertical"
+        android:paddingStart="15dp"
+        tools:ignore="RtlSymmetry" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/answer"
+        android:textSize="20sp"
+        android:paddingLeft="15dp"
+        android:gravity="center_vertical"
+        android:paddingStart="15dp"
+        tools:ignore="RtlSymmetry" />
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/edt_check_answer_answer"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:textSize="16sp"
+        android:background="@android:color/white"
+        android:paddingLeft="15dp"
+        android:gravity="center_vertical" />
+
+    <Button
+        android:id="@+id/btn_check_answer_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sure"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:background="@drawable/border_sure"
+        android:layout_margin="20dp"
+        />
+
+</android.support.v7.widget.LinearLayoutCompat>

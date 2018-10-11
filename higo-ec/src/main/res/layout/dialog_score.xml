@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/app_main"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.joanzapata.iconify.widget.IconTextView
+                android:id="@+id/order_score_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/fa_angle_left"
+                android:textSize="30sp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_alignParentLeft="true"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="评分"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/btn_score"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="确  定"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"/>
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+        <RatingBar
+            android:id="@+id/rb_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:stepSize="1"
+            android:rating="5"
+            android:progressTint="@color/app_main"/>
+        <TextView
+            android:id="@+id/txt_score_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="非常好"
+            android:textSize="18sp"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp">-->
+
+        <!--&lt;!&ndash;<LinearLayout&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="0dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_weight="1">&ndash;&gt;-->
+        <!--&lt;!&ndash;&ndash;&gt;-->
+        <!--&lt;!&ndash;</LinearLayout>&ndash;&gt;-->
+        <!--&lt;!&ndash;<LinearLayout&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="0dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_weight="1">&ndash;&gt;-->
+
+        <!--&lt;!&ndash;</LinearLayout>&ndash;&gt;-->
+        <!--<Button-->
+            <!--android:id="@+id/btn_cancel"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@drawable/border_button"-->
+            <!--android:gravity="center"-->
+            <!--android:text="取消"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:textSize="16sp"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:layout_marginRight="20dp"/>-->
+
+        <!--<Button-->
+            <!--android:id="@+id/btn_score"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@drawable/border_button"-->
+            <!--android:gravity="center"-->
+            <!--android:text="确定"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:textSize="16sp"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:layout_marginRight="20dp"/>-->
+    <!--</LinearLayout>-->
+
+</LinearLayout>

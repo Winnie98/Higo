@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="140dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    app:cardCornerRadius="5dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="5dp">
+
+    <LinearLayout
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:orientation="vertical">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/img_content_promo"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_content_promo_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:textColor="@color/we_chat_black"
+        android:text="促销信息"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp" >
+
+        <TextView
+            android:id="@+id/unit1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="￥"
+            android:textColor="@color/app_main"
+            android:textSize="17sp" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_content_promo_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/unit1"
+            android:text="89.64"
+            android:textColor="@color/app_main"
+            android:textSize="21sp" />
+
+    </RelativeLayout>
+
+     <TextView
+         android:id="@+id/txt_promo_publisher"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent" />
+
+     <TextView
+         android:id="@+id/txt_promo_publishTime"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:textSize="8dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginBottom="5dp">
+
+
+        <ImageView
+            android:id="@+id/img_content_promo_country"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:scaleType="centerCrop"
+            android:layout_toLeftOf="@+id/txt_content_promo_country"/>
+        <TextView
+            android:id="@+id/txt_content_promo_country"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"/>
+    </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>
+
+

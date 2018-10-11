@@ -1,0 +1,341 @@
+package com.yhl.higo.ec.main.market;
+
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.chad.library.adapter.base.BaseQuickAdapter.RequestLoadMoreListener;
+import com.yhl.higo.app.Higo;
+import com.yhl.higo.delegates.HigoDelegate;
+import com.yhl.higo.net.RestClient;
+import com.yhl.higo.net.callback.IError;
+import com.yhl.higo.net.callback.ISuccess;
+import com.yhl.higo.ui.recycler.DataConverter;
+import com.yhl.higo.ui.recycler.MultipleItemEntity;
+import com.yhl.higo.ui.refresh.PaginBean;
+import com.yhl.higo.util.log.HigoLogger;
+
+import java.util.List;
+
+import static com.blankj.utilcode.util.Utils.getContext;
+
+/**
+ * Created by Administrator on 2018/5/12/012.
+ */
+
+public class MarketRefreshHandler implements
+        SwipeRefreshLayout.OnRefreshListener,
+        RequestLoadMoreListener
+        {
+
+    private final SwipeRefreshLayout REFRESH_LAYOUT;
+    private final PaginBean BEAN;
+    private final RecyclerView RECYCLERVIEW;
+//    private static RecyclerView RECYCLERVIEW;
+    private MarketAdapter mAdapter  =  null;
+    private final DataConverter CONVERTER;
+    private final HigoDelegate DELEGATE;
+    private final int TYPE_ID;
+    private final int CATEGORY_ID;
+    private final String ORDER_BY ;
+    private final int COUNTRY_ID;
+
+
+    private MarketRefreshHandler(SwipeRefreshLayout swipeRefreshLayout,
+                                 RecyclerView recyclerView,
+                                 DataConverter converter,
+                                 PaginBean bean, HigoDelegate delegate,
+                                 int type_id, int category_id, String order_by, int country_id) {
+        this.REFRESH_LAYOUT = swipeRefreshLayout;
+        this.RECYCLERVIEW = recyclerView;
+        this.CONVERTER = converter;
+        this.BEAN = bean;
+        DELEGATE = delegate;
+        TYPE_ID = type_id;
+        CATEGORY_ID = category_id;
+        ORDER_BY = order_by;
+        COUNTRY_ID = country_id;
+        REFRESH_LAYOUT.setOnRefreshListener(this);
+
+    }
+
+    public static MarketRefreshHandler create(SwipeRefreshLayout swipeRefreshLayout,
+                                              RecyclerView recyclerView, DataConverter converter,
+                                              HigoDelegate delegate, int type_id, int category_id, String order_by, int country_id){
+        return new MarketRefreshHandler(swipeRefreshLayout,recyclerView,converter,new PaginBean(), delegate, type_id, category_id, order_by, country_id);
+    }
+
+    private void refresh(){
+        REFRESH_LAYOUT.setRefreshing(true);
+        Higo.getHandler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //进行一些网络请求
+//                CONVERTER.clearData();
+                firstProductPage();
+                REFRESH_LAYOUT.setRefreshing(false);
+            }
+        },2000);
+    }
+
+
+    public void firstProductPage(){
+        final int pageNum = 1;
+        RestClient.builder()
+                .url("user/product/get_normal_product_list.do")
+                .params("pageNum",pageNum)
+                .params("orderBy",ORDER_BY)
+                .params("categoryId",CATEGORY_ID)
+                .params("productType",TYPE_ID)
+                .params("countryId",COUNTRY_ID)
+                .success(new ISuccess() {
+                    @Override
+                    public void onSuccess(String response) {
+                        HigoLogger.d("PRODUCT_INFO",response);
+                        final int status = JSON.parseObject(response).getInteger("status");
+                        switch (status){
+                            case 0:
+
+                                final JSONObject object = JSON.parseObject(response).getJSONObject("data");
+
+                                BEAN.setPageIndex(object.getInteger("pageNum"))
+                                        .setPageSize(object.getInteger("pageSize"))
+                                        .setIsHasNextPage(object.getBoolean("hasNextPage"));
+
+//                                final LinearLayoutManager manager = new LinearLayoutManager(getContext());
+//                                RECYCLERVIEW.setLayoutManager(manager);
+
+
+                                final List<MultipleItemEntity> data =
+                                        new MarketDataConverter().setJsonData(response).convert();
+
+                                mAdapter = new MarketAdapter(data,DELEGATE);
+
+                                mAdapter.setOnLoadMoreListener(MarketRefreshHandler.this,RECYCLERVIEW);
+                                mAdapter.notifyDataSetChanged();
+
+                                RECYCLERVIEW.setAdapter(mAdapter);
+                                BEAN.addIndex();
+
+                                BEAN.addPageSize();
+
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                })
+                .error(new IError() {
+                    @Override
+                    public void onError(int code, String msg) {
+                        HigoLogger.d("MARKET_DELEGATE_ERROR",code);
+                        HigoLogger.d("MARKET_DELEGATE_ERROR",msg);
+                    }
+                })
+                .build()
+                .get();
+    }
+
+    private void paging() {
+        final int index = BEAN.getPageIndex();
+        final int pageSize = BEAN.getPageSize();
+
+        final boolean hasNextPage = BEAN.getIsHasNextPage();
+
+        if (!hasNextPage) {
+            mAdapter.loadMoreEnd(true);
+//            Toast.makeText(getContext(),"当前已是最后一页",Toast.LENGTH_SHORT).show();
+        } else {
+            Higo.getHandler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    RestClient.builder()
+                            .url("user/product/get_normal_product_list.do")
+                            .params("pageNum",index)
+//                    .params("pageSize",10)
+                            .params("orderBy",ORDER_BY)
+                            .params("categoryId",CATEGORY_ID)
+                            .params("productType",TYPE_ID)
+                            .params("countryId",COUNTRY_ID)
+                            .success(new ISuccess() {
+                                @Override
+                                public void onSuccess(String response) {
+                                    HigoLogger.d("PRODUCT_INFO",response);
+                                    final int status = JSON.parseObject(response).getInteger("status");
+                                    switch (status){
+                                        case 0:
+                                            final JSONObject object = JSON.parseObject(response).getJSONObject("data");
+                                            BEAN.setPageIndex(object.getInteger("pageNum"))
+                                                    .setPageSize(object.getInteger("pageSize"))
+                                                    .setIsHasNextPage(object.getBoolean("hasNextPage"));
+
+                                            mAdapter.addData(CONVERTER.setJsonData(response).convert());
+
+                                            mAdapter.loadMoreComplete();
+
+                                            BEAN.addIndex();
+                                            BEAN.addPageSize();
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                            })
+                            .build()
+                            .get();
+
+//                    if (CATEGORY_ID == 0 && TYPE_ID ==  0 && COUNTRY_ID == 0){
+//                        RestClient.builder()
+//                                .url(url)
+//                                .params("pageNum",index)
+////                    .params("pageSize",10)
+//                                .params("orderBy",ORDER_BY)
+//                                .params("categoryId","")
+//                                .params("productType","")
+//                                .params("countryId","")
+//                                .success(new ISuccess() {
+//                                    @Override
+//                                    public void onSuccess(String response) {
+//                                        loadMoreSuccess(response);
+//                                    }
+//                                })
+//                                .build()
+//                                .get();
+//                    }else if (CATEGORY_ID  == 0 && TYPE_ID == 0 && COUNTRY_ID != 0){
+//                        RestClient.builder()
+//                                .url("user/product/get_normal_product_list.do")
+//                                .params("pageNum",index)
+////                    .params("pageSize",10)
+//                                .params("orderBy",ORDER_BY)
+//                                .params("categoryId","")
+//                                .params("productType","")
+//                                .params("countryId",COUNTRY_ID)
+//                                .success(new ISuccess() {
+//                                    @Override
+//                                    public void onSuccess(String response) {
+//                                        loadMoreSuccess(response);
+//                                    }
+//                                })
+//                                .build()
+//                                .get();
+//                    }else if (CATEGORY_ID == 0 && TYPE_ID != 0 && COUNTRY_ID == 0){
+//                        RestClient.builder()
+//                                .url("user/product/get_normal_product_list.do")
+//                                .params("pageNum",index)
+////                    .params("pageSize",10)
+//                                .params("orderBy",ORDER_BY)
+//                                .params("categoryId","")
+//                                .params("productType",TYPE_ID)
+//                                .params("countryId","")
+//                                .success(new ISuccess() {
+//                                    @Override
+//                                    public void onSuccess(String response) {
+//                                        loadMoreSuccess(response);
+//                                    }
+//                                })
+//                                .build()
+//                                .get();
+//                    }else if (CATEGORY_ID == 0 && TYPE_ID != 0 && COUNTRY_ID != 0){
+//                        RestClient.builder()
+//                                .url("user/product/get_normal_product_list.do")
+//                                .params("pageNum",index)
+////                    .params("pageSize",10)
+//                                .params("orderBy",ORDER_BY)
+//                                .params("categoryId","")
+//                                .params("productType",TYPE_ID)
+//                                .params("countryId",COUNTRY_ID)
+//                                .success(new ISuccess() {
+//                                    @Override
+//                                    public void onSuccess(String response) {
+//                                        loadMoreSuccess(response);
+//                                    }
+//                                })
+//                                .build()
+//                                .get();
+//                    }else if (CATEGORY_ID != 0 && TYPE_ID == 0 && COUNTRY_ID == 0){
+//                        RestClient.builder()
+//                                .url("user/product/get_normal_product_list.do")
+//                                .params("pageNum",index)
+////                    .params("pageSize",10)
+//                                .params("orderBy",ORDER_BY)
+//                                .params("categoryId",CATEGORY_ID)
+//                                .params("productType","")
+//                                .params("countryId","")
+//                                .success(new ISuccess() {
+//                                    @Override
+//                                    public void onSuccess(String response) {
+//                                        loadMoreSuccess(response);
+//                                    }
+//                                })
+//                                .build()
+//                                .get();
+//                    }else if (CATEGORY_ID != 0 && TYPE_ID == 0 && COUNTRY_ID != 0){
+//                        RestClient.builder()
+//                                .url("user/product/get_normal_product_list.do")
+//                                .params("pageNum",index)
+////                    .params("pageSize",10)
+//                                .params("orderBy",ORDER_BY)
+//                                .params("categoryId",CATEGORY_ID)
+//                                .params("productType","")
+//                                .params("countryId",COUNTRY_ID)
+//                                .success(new ISuccess() {
+//                                    @Override
+//                                    public void onSuccess(String response) {
+//                                        loadMoreSuccess(response);
+//                                    }
+//                                })
+//                                .build()
+//                                .get();
+//                    }else if (CATEGORY_ID != 0 && TYPE_ID != 0 && COUNTRY_ID == 0){
+//                        RestClient.builder()
+//                                .url("user/product/get_normal_product_list.do")
+//                                .params("pageNum",index)
+////                    .params("pageSize",10)
+//                                .params("orderBy",ORDER_BY)
+//                                .params("categoryId",CATEGORY_ID)
+//                                .params("productType",TYPE_ID)
+//                                .params("countryId","")
+//                                .success(new ISuccess() {
+//                                    @Override
+//                                    public void onSuccess(String response) {
+//                                        loadMoreSuccess(response);
+//                                    }
+//                                })
+//                                .build()
+//                                .get();
+//                    }else if (CATEGORY_ID != 0 && TYPE_ID != 0 && COUNTRY_ID != 0){
+//                        RestClient.builder()
+//                                .url("user/product/get_normal_product_list.do")
+//                                .params("pageNum",index)
+////                    .params("pageSize",10)
+//                                .params("orderBy",ORDER_BY)
+//                                .params("categoryId",CATEGORY_ID)
+//                                .params("productType",TYPE_ID)
+//                                .params("countryId",COUNTRY_ID)
+//                                .success(new ISuccess() {
+//                                    @Override
+//                                    public void onSuccess(String response) {
+//                                        loadMoreSuccess(response);
+//                                    }
+//                                })
+//                                .build()
+//                                .get();
+//                    }
+                }
+            }, 1000);
+        }
+    }
+
+
+    @Override
+    public void onRefresh() {
+        refresh();
+    }
+
+    @Override
+    public void onLoadMoreRequested() {
+        paging();
+    }
+}

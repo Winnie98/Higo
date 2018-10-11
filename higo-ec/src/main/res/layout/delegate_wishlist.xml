@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/app_main"
+            android:gravity="center">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.joanzapata.iconify.widget.IconTextView
+                    android:id="@+id/icon_wish_list_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="12dp"
+                    android:gravity="center"
+                    android:text="@string/fa_angle_left"
+                    android:textColor="@android:color/white"
+                    android:textSize="30sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text="心愿单"
+                    android:textColor="@android:color/white"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/txt_wish_list_manage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="管理"
+                    android:visibility="invisible"
+                    android:textSize="16sp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"/>
+
+                <TextView
+                    android:id="@+id/txt_wish_list_complete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="完成"
+                    android:textSize="16sp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:visibility="invisible"/>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+    </LinearLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swip_refresh_wish_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ll_toolbar">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_wish_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/ll_toolbar">-->
+
+        <!--<android.support.v4.widget.SwipeRefreshLayout-->
+            <!--android:id="@+id/swip_refresh_wish_list"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
+
+            <!--<android.support.v7.widget.RecyclerView-->
+                <!--android:id="@+id/rv_wish_list"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent" />-->
+
+        <!--</android.support.v4.widget.SwipeRefreshLayout>-->
+    <!--</LinearLayout>-->
+
+
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/rl_wish_list_bottom"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:background="@color/white"-->
+        <!--android:visibility="invisible">-->
+
+        <!--<LinearLayout-->
+            <!--android:id="@+id/ll_select_all_wish_list"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:layout_marginLeft="20dp">-->
+
+            <!--<com.joanzapata.iconify.widget.IconTextView-->
+                <!--android:id="@+id/icon_select_all_wish_list"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="{fa-check-circle}"-->
+                <!--android:textColor="@color/darkgray" />-->
+
+            <!--<TextView-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="全选" />-->
+        <!--</LinearLayout>-->
+
+        <!--<LinearLayout-->
+            <!--android:id="@+id/ll_delete_all_wish_list"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerInParent="true">-->
+            <!--<ImageView-->
+                <!--android:id="@+id/img_delete_all_wish_list"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@mipmap/delete"/>-->
+
+            <!--<TextView-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="删除" />-->
+        <!--</LinearLayout>-->
+    <!--</RelativeLayout>-->
+
+</RelativeLayout>

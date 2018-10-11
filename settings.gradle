@@ -1,0 +1,1 @@
+include ':app', ':higo-core', ':higo-ec'

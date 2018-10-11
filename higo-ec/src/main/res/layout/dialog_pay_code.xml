@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
+    android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:fitsSystemWindows="true"
+           >
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content" -->
+                <!--android:text="余额支付"-->
+                <!--android:gravity="center"-->
+                <!--android:textSize="25sp"/>-->
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="8dp">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2">
+                    <!--验证码-->
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/edit_pay_code"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/please_input_identity_code"
+                            tools:ignore="HardcodedText" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/txt_get_pay_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@string/obtain_identity_code"
+                        android:textColor="@color/white"
+                        android:background="@color/app_main"
+                        android:layout_marginBottom="5dp"
+                        android:layout_alignParentBottom="true"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btn_pay_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:layout_marginTop="24dp"
+                android:background="@color/app_main"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="确认支付"
+                android:textColor="@android:color/white"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+</ScrollView>

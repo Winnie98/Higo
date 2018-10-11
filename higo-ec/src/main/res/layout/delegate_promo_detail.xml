@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/promo_detail_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/app_main">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.joanzapata.iconify.widget.IconTextView
+                android:id="@+id/icon_promo_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="12dp"
+                android:gravity="center"
+                android:text="@string/fa_angle_left"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_promo_detail_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="促销详情"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"
+        android:layout_below="@+id/promo_detail_toolbar">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.bigkoo.convenientbanner.ConvenientBanner
+            android:id="@+id/promo_detail_banner"
+            android:layout_width="match_parent"
+            android:layout_height="260dp" />
+
+        <android.support.v7.widget.ContentFrameLayout
+            android:id="@+id/frame_promo_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/promo_detail_banner" />
+
+        <TextView
+            android:id="@+id/txt_promo_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/frame_promo_info"
+            android:padding="20dp"/>
+
+
+    </RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>
+
+
+<include layout="@layout/layout_promos_detail_bottom" />
+
+</RelativeLayout>
